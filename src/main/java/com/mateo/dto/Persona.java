@@ -25,8 +25,11 @@ public class Persona implements Serializable{
 	@Column(name="edad")
 	private int edad;
 	
+	@Column(name="id_trabajo")
+	private int id_trabajo;
+	
 	@OneToOne
-	 @JoinColumn(name = "id_trabajo")
+	 @JoinColumn(name = "id_trabajo", referencedColumnName = "id_trabajo", insertable = false, updatable = false)
 	private Trabajo trabajo;
 
 	public int getDni() {
@@ -51,6 +54,15 @@ public class Persona implements Serializable{
 
 	public void setEdad(Integer edad) {
 		this.edad = edad;
+	}
+	
+	
+	public int getId_trabajo() {
+		return id_trabajo;
+	}
+
+	public void setId_trabajo(int id_trabajo) {
+		this.id_trabajo = id_trabajo;
 	}
 
 	public Trabajo getTrabajo() {

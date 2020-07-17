@@ -1,0 +1,28 @@
+endpoints:
+    health:
+        sensitive: '*'
+info:
+    app:        
+        java:
+            version: ${java.version}
+        name: '@project.name@'
+        version: '@project.version@'
+management:
+    security:
+        enabled: true
+server:
+    port: 9090
+    servlet:
+        context-path: /connect-mysql
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: Pachi_1984
+        url: jdbc:mysql://localhost:3306/test?useSSL=false
+        username: Mateo
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
