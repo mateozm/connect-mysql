@@ -35,4 +35,12 @@ public class Trabajo implements Serializable {
 	public void setNombreTrabajo(String nombreTrabajo) {
 		this.nombreTrabajo = nombreTrabajo;
 	}
+
+	@Override
+	public String toString() {
+		return "Trabajo{" +
+				"idTrabajo=" + idTrabajo +
+				", nombreTrabajo='" + nombreTrabajo + '\'' +
+				'}';
+	}
 }

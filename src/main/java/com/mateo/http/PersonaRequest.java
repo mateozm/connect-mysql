@@ -45,4 +45,14 @@ public class PersonaRequest {
 	public void setIdTrabajo(int idTrabajo) {
 		this.idTrabajo = idTrabajo;
 	}
+
+	@Override
+	public String toString() {
+		return "PersonaRequest{" +
+				"dni=" + dni +
+				", nombre='" + nombre + '\'' +
+				", edad=" + edad +
+				", idTrabajo=" + idTrabajo +
+				'}';
+	}
 }

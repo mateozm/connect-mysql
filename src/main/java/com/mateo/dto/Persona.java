@@ -74,15 +74,12 @@ public class Persona implements Serializable{
 
 	@Override
 	public String toString() {
-		
-		return "nombre: " + nombre + " edad: " + edad + " trabajo: " + trabajo.getNombreTrabajo();
-	}	
-
-	
-	
-
-
-	
-	
-	
+		return "Persona{" +
+				"dni=" + dni +
+				", nombre='" + nombre + '\'' +
+				", edad=" + edad +
+				", idTrabajo=" + idTrabajo +
+				", trabajo=" + trabajo +
+				'}';
+	}
 }

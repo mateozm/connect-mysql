@@ -1,0 +1,1 @@
+insert into trabajo (id_trabajo, nombre_trabajo) values (1, 'Programmer');

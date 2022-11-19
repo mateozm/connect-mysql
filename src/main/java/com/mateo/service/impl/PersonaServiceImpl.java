@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -22,7 +21,6 @@ public class PersonaServiceImpl implements PersonaService {
     
     private PersonaRepository personaRepository;
     
-    @Autowired
     public PersonaServiceImpl(PersonaRepository personaRepository) {
 		this.personaRepository = personaRepository;
 	}
@@ -46,14 +44,14 @@ public class PersonaServiceImpl implements PersonaService {
 	@Cacheable(value = "personas", key= "#edad")
 	public List<Persona> getAllPersonas(int edad) {
 		
-		List<Persona> personas = new ArrayList<>();
-		
 		System.out.print("going to db");
-		
-		personas = personaRepository.findAll();
-		
+
+		List<Persona> personas = personaRepository.findAll();
+
+		if(personas.isEmpty()){
+			throw new RuntimeException("Stuff");
+		}
 		return personas.stream().filter(p -> p.getEdad() > edad).collect(Collectors.toList());
-		
 		
 	}
 

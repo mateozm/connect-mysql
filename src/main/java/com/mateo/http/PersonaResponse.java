@@ -15,7 +15,11 @@ public class PersonaResponse {
 	public void setPersonas(List<Persona> personas) {
 		this.personas = personas;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "PersonaResponse{" +
+				"personas=" + personas +
+				'}';
+	}
 }
