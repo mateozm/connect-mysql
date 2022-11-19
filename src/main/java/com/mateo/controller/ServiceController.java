@@ -37,10 +37,10 @@ public class ServiceController {
 
 	}
 	
-	@RequestMapping(value = "/personas", method = RequestMethod.GET)
-	public PersonaResponse getPersonas()
+	@RequestMapping(value = "/personas/{edad}", method = RequestMethod.GET)
+	public PersonaResponse getPersonas(@PathVariable(value = "edad") int edad )
 	{
-		List<Persona> personas = personaService.getAllPersonas();
+		List<Persona> personas = personaService.getAllPersonas(edad);
 		
 		PersonaAdapter adapter = new PersonaAdapter();
 		

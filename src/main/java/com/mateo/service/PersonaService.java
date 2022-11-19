@@ -11,7 +11,7 @@ public interface PersonaService {
 	
 	void deletePersona (int id);
 	
-	List<Persona> getAllPersonas();
+	List<Persona> getAllPersonas(int edad);
 	
 	Optional<Persona> findById(int id);
 	

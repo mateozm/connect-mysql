@@ -13,17 +13,18 @@ public class Trabajo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id_trabajo")
-	private int idTrabajo;
-	
-	@Column(name="nombreTrabajo")
+	@Column(name = "idTrabajo")
+	private Integer idTrabajo;
+
+	@Column(name = "nombreTrabajo")
 	private String nombreTrabajo;
 
-	public int getIdTrabajo() {
+
+	public Integer getIdTrabajo() {
 		return idTrabajo;
 	}
 
-	public void setIdTrabajo(int idTrabajo) {
+	public void setIdTrabajo(Integer idTrabajo) {
 		this.idTrabajo = idTrabajo;
 	}
 
@@ -34,17 +35,4 @@ public class Trabajo implements Serializable {
 	public void setNombreTrabajo(String nombreTrabajo) {
 		this.nombreTrabajo = nombreTrabajo;
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-
 }

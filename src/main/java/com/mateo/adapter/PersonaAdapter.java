@@ -27,7 +27,7 @@ public class PersonaAdapter {
 		persona.setDni(p.getDni());
 		persona.setEdad(p.getEdad());
 		persona.setNombre(p.getNombre());
-		persona.setId_trabajo(p.getId_trabajo());
+		persona.setIdTrabajo(p.getIdTrabajo());
 		
 		return persona;
 		

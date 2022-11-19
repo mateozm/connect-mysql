@@ -14,15 +14,28 @@ server:
     port: 9090
     servlet:
         context-path: /connect-mysql
+    #spring:
+        #   datasource:
+        #     driver-class-name: com.mysql.cj.jdbc.Driver
+        #    password: Pachi_1984
+        #     url: jdbc:mysql://localhost:3306/test?useSSL=false
+    #     username: Mateo
+        #   jpa:
+            #       hibernate:
+        #          ddl-auto: update
+            #     properties:
+            #         hibernate:
+        #          dialect: org.hibernate.dialect.MySQL5Dialect
 spring:
     datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        password: Pachi_1984
-        url: jdbc:mysql://localhost:3306/test?useSSL=false
-        username: Mateo
+        url: jdbc:h2:mem:mydb
+        username: sa
+        password: password
+        driverClassName: org.h2.Driver
     jpa:
-        hibernate:
-            ddl-auto: update
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.MySQL5Dialect
+        spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    cache:
+        jcache:
+            config: classpath:ehcache.xml
+    h2:
+        console.enabled: true

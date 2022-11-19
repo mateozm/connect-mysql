@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableCaching 
 public class Application{    
 	
+	String a;
+	
 	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();

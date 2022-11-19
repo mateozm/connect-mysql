@@ -3,6 +3,8 @@ package com.mateo.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -13,8 +15,6 @@ import org.springframework.stereotype.Service;
 import com.mateo.dto.Persona;
 import com.mateo.repository.PersonaRepository;
 import com.mateo.service.PersonaService;
-
-
 
 @Service
 public class PersonaServiceImpl implements PersonaService {	
@@ -43,8 +43,8 @@ public class PersonaServiceImpl implements PersonaService {
 
 
 	@Override
-	@Cacheable(cacheNames = "personas")
-	public List<Persona> getAllPersonas() {
+	@Cacheable(value = "personas", key= "#edad")
+	public List<Persona> getAllPersonas(int edad) {
 		
 		List<Persona> personas = new ArrayList<>();
 		
@@ -52,14 +52,17 @@ public class PersonaServiceImpl implements PersonaService {
 		
 		personas = personaRepository.findAll();
 		
-		return personas;
+		return personas.stream().filter(p -> p.getEdad() > edad).collect(Collectors.toList());
 		
 		
 	}
 
 
 	@Override
+	@Cacheable(value = "person", key= "#id")
 	public Optional<Persona> findById(int id) {
+		
+		System.out.print("going to db 2");
 		
 		return personaRepository.findById(id);
 
